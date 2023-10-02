@@ -1,0 +1,38 @@
+<%= render 'shared/navbar'%>
+<h1 class='page-heading'><%= @record.first_name %> <%= @record.last_name %></h1>
+<div class="row">
+  <div class='col-md-4 project'>
+    <% if @record.image.attached? %>
+      <%= image_tag @record.image, style: 'height: 200px'%>
+    <% end %>
+
+    <p class= "description">
+      <i><%= @record.description %></i>
+    </p>
+
+    <p> <strong> Serial Number: </strong>
+      <%= @record.serial_number %>
+    </p>
+
+    <p> <strong> Total Experience: </strong>
+      <%= @total_experience %> days
+    </p>
+
+    <p> <strong> Phone Number: </strong>
+      <%= @record.phone_number %>
+    </p>
+
+    <p> <strong> Email: </strong>
+      <%= @record.email %>
+    </p>
+
+    <p> <strong> Skills: </strong>
+      <%= @record.skills %>
+    </p>
+
+    <%= render 'experience', record: @record  %>
+
+    <%= link_to 'Edit Profile', edit_profile_path(@record), class: 'btn card-buttons' %>
+    <%= link_to 'Delete Profile', profile_path(@record), method: :delete, data: { confirm: "Are you sure?" },class: 'btn card-buttons'%>
+  </div>
+</div>

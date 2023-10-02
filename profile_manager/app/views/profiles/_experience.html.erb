@@ -1,0 +1,35 @@
+<h2 class='exp-heading'>Experience</h2>
+
+<table class="table center">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Detail</th>
+      <th scope="col">Skills</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @record.experiences.each do |exp| %>
+      <tr>
+        <td> <%= exp.title %> </td>
+        <td> <%= exp.start_date %> </td>
+        <td> <%= exp.end_date %> </td>
+        <td> <%= exp.description %> </td>
+        <td> <%= exp.skills %> </td>
+        <td><%= link_to 'Edit', edit_profile_experience_path(exp.profile, exp),class: 'btn '%> </td>
+        <td><%= link_to 'Delete', [exp.profile, exp], method: :delete, data: { confirm: "Are you sure?" },class: 'btn'%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+<%= form_for([record, record.experiences.build]) do |f| %>
+  <%= render '/shared/experience_form', f: f  %>
+
+  <p>
+    <%= f.submit 'Add Experience', class: 'btn' %>
+  </p>
+<% end %>

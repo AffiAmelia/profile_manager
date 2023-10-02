@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "profiles.scss";
+
+.nav-item a {
+  color: white;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+.navbar {
+  background-color: black;
+}

@@ -1,0 +1,27 @@
+<%= render 'shared/navbar'%>
+<h1 class='page-heading'>Profiles</h1>
+
+<div class="row card-styling">
+  <% @records.each do |record| %>
+  	<div class="col-md-4">
+  	  <div class="card">
+        <% if record.image.attached? %>
+          <%= image_tag record.image, class: 'card-img-top', style: 'height: 200px'%>
+        <% end %>
+
+        <h3 class="card-header text-white"><%= record.first_name %> <%= record.last_name %></h3>
+        <p class="card-body text-justify"><%= record.description %></p>
+        <p class="card-body text-justify"><strong>Designation: </strong><%= record.designation %></p>
+        <p class="card-body text-justify"><strong>Phone Number: </strong><%= record.phone_number %></p>
+        <p class="card-body text-justify"><strong>Email: </strong><%= record.email %></p>
+
+        <div class='card-text'>
+          <%= link_to 'Show', record, class: 'btn card-buttons'  %>
+          <%= link_to 'Edit', edit_profile_path(record) , class: 'btn card-buttons'%>
+          <%= link_to 'Delete', profile_path(record), method: :delete, data: { confirm: "Are you sure?" },class: 'btn card-buttons'%>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+</div>

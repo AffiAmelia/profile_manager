@@ -1,0 +1,9 @@
+<%= render 'shared/navbar'%>
+<%= form_with model: @record, url: profile_experience_path(@profile, @record), validate: true, local: true do |f| %>
+
+  <%= render '/shared/experience_form', f: f  %>
+
+  <div class="mt-2">
+    <%= f.submit 'Update', class: 'btn update-btn' %>
+  </div>
+<% end %>

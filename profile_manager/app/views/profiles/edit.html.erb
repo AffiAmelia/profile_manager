@@ -1,0 +1,14 @@
+<%= render 'shared/navbar'%>
+<h2 class= 'page-heading'>Edit</h2>
+<div class='col-md-4 project'>
+
+  <%= render 'experience', record: @record  %>
+
+  <%= form_with model: @record, url: profile_path(@record), method: :patch, validate: true, local: true do |f| %>
+    <%= render 'profile_form',  f: f %>
+
+    <div class="mt-2">
+      <%= f.submit "Update Resume" , class: 'btn update-btn' %>
+    </div>
+  <% end %>
+</div>

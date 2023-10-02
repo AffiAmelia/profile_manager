@@ -1,0 +1,22 @@
+<nav class="navbar sticky-top navbar-expand-lg  navbar-dark">
+  <a class="navbar-brand">K-Resume</a>
+
+    <ul class="navbar-nav ms-auto">
+
+      <li class="nav-item">
+        <%= link_to "Resumes", profiles_path(current_user) %>
+      </li>
+
+      <li class="nav-item" >
+        <%= link_to "Create", new_profile_path %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Account", edit_user_registration_path(current_user) %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Logout' , destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+</nav>

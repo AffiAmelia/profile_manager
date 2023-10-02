@@ -1,0 +1,15 @@
+<%= render 'shared/navbar'%>
+<div class='container'>
+  <h2 class= 'page-heading2'>Create Resume</h2>
+  <div class='col-md-4 project'>
+
+  <%= form_with model: @record, validate: true, local: true do |f| %>
+    <%= render 'profile_form',  f: f  %>
+
+    <div class="mt-2">
+      <%= f.submit "Create" , class: 'btn btn-lg card-buttons' %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
